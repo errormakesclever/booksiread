@@ -1,0 +1,18 @@
+.title-bar{
+    
+
+    color: #FDFDFD;
+    display: flex;
+    justify-content: space-between;
+}
+
+.title-heading{
+    display: flex;
+    align-items: center;
+}
+
+.title-i{
+    color: #F5572F;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 60px;
+}

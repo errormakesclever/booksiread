@@ -1,0 +1,30 @@
+.addbook-input{
+    background:transparent;
+    
+    padding: 10px;
+    width: 80%;
+    border: none;
+    color: white;
+    font-size: 20px;
+    
+}
+.addbook-input:focus
+{
+    outline: none;
+}
+
+.addbook-container{
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    border-radius: 5px;
+    border: solid white 1px;
+    width: 70%;
+}
+
+.addbook-button{
+    background-color: #F5572F;
+    border: none;
+    border-radius: 5px;
+    width: 20%;
+}
