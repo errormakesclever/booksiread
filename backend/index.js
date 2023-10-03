@@ -5,7 +5,7 @@
 import express from "express"
 import cors from "cors"
 import mongoose from "mongoose"
-
+const ObjectId = mongoose.Types.ObjectId;
 
 mongoose.connect("mongodb+srv://yosuva:yosuva123@cluster0.9xeijrk.mongodb.net/?retryWrites=true&w=majority").then(() => {
     console.log('start');
@@ -13,7 +13,6 @@ mongoose.connect("mongodb+srv://yosuva:yosuva123@cluster0.9xeijrk.mongodb.net/?r
 
 
 const bookSchema = new mongoose.Schema({
-    _id: String,
     title: String,
 });
 
@@ -28,19 +27,19 @@ app.get("/", async function (request, response) {
     response.send(books);
 })
 
-app.post('/save', async function (request, response) {
+app.get('/save', async function (request, response) {
     const newBook = new Books({
-        _id: request.body._id,
-        title: request.body.title,
+        title: request.query.title,
     });
     await newBook.save()
+    console.log("saved")
     response.send("data is Saved...!")
 
 })
 
 app.get("/delete", async function (request, response) {
     console.log(request.query._id)
-    const deletedDocument = await Books.findByIdAndDelete(request.query._id);
+    const deletedDocument = await Books.deleteOne({_id: new ObjectId(request.query._id)}) 
     response.send('Deleted...!');
 })
 
